@@ -4,7 +4,7 @@ data class Course(
     val id: String,
     val title: String,
     val subtitle: String,
-    val thumbnailURL: String,
+    val thumbnailUrl: String,
     val level: String,
     val durationHours: Double,
     val rating: Double,
@@ -12,7 +12,7 @@ data class Course(
     val language: String,
     val lastUpdated: String,
     val tags: List<String>,
-    val instructor: List<Instructor>,
+    val instructor: Instructor,
     val description: String,
     val lessons: List<Lesson>
 )

@@ -38,6 +38,7 @@ android {
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
@@ -51,6 +52,7 @@ dependencies {
 
     // Navigation
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.ui)
 
     // Retrofit
     implementation(libs.retrofit)
@@ -62,7 +64,10 @@ dependencies {
     // Coil
     implementation(libs.coil.compose)
 
-    // Testing
+    // Icons
+    implementation(libs.androidx.material.icons.extended)
+
+    // Testingcoil
     testImplementation(libs.junit)
     testImplementation(libs.mockwebserver)
 
