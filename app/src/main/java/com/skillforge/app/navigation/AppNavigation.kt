@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.skillforge.app.ui.detail.DetailScreen
 import com.skillforge.app.ui.home.HomeScreen
+import com.skillforge.app.ui.lesson.LessonScreen
 
 @Composable
 fun AppNavigation() {
@@ -19,6 +20,12 @@ fun AppNavigation() {
         composable(Screen.Detail.route) { backStack ->
             val courseId = backStack.arguments?.getString("courseId") ?: ""
             DetailScreen(navController, courseId)
+        }
+
+        composable(Screen.Lesson.route) { backStack ->
+            val courseId = backStack.arguments?.getString("courseId") ?: ""
+            val lessonId = backStack.arguments?.getString("lessonId") ?: ""
+            LessonScreen(navController, courseId, lessonId)
         }
     }
 }
