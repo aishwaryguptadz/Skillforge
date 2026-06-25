@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
-    private val repository = SkillforgeRepository()
     private val _uiState = MutableStateFlow<UiState<ApiResponse>>(UiState.Loading)
     val uiState: StateFlow<UiState<ApiResponse>> = _uiState
     init {
@@ -20,7 +19,7 @@ class HomeViewModel : ViewModel() {
     fun loadData() {
         viewModelScope.launch {
             try {
-                val response = repository.getSkillforgeData()
+                val response = SkillforgeRepository.getSkillforgeData()
                 _uiState.value = UiState.Success(response)
             } catch (e: Exception) {
                 _uiState.value = UiState.Error<Nothing>(e.message ?: "Unknown Error")

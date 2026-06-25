@@ -22,6 +22,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import com.skillforge.app.data.model.ApiResponse
+import com.skillforge.app.navigation.Screen
 import com.skillforge.app.ui.components.CategoryChip
 import com.skillforge.app.ui.components.CourseCard
 import com.skillforge.app.ui.components.HeaderSection
@@ -31,6 +35,7 @@ import com.skillforge.app.viewmodel.HomeViewModel
 
 @Composable
 fun HomeScreen(
+    navController: NavHostController,
     viewModel: HomeViewModel = viewModel()
 ) {
     val state by viewModel.uiState.collectAsState()
@@ -57,7 +62,7 @@ fun HomeScreen(
         }
 
         is UiState.Success -> {
-            val data = (state as UiState.Success).data
+            val data = (state as UiState.Success<ApiResponse>).data
             LazyColumn {
                 item {
                     HeaderSection()
@@ -92,18 +97,17 @@ fun HomeScreen(
                 }
                 data.categories.forEach { category ->
                     items(category.courses) { course ->
-                        CourseCard(course) {
-                            // Navigation later
-                        }
+                        CourseCard(
+                            course = course,
+                            onClick = {
+                                navController.navigate(
+                                    Screen.Detail.createRoute(course.id)
+                                )
+                            }
+                        )
                     }
                 }
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun HomePreview() {
-    HomeScreen()
 }

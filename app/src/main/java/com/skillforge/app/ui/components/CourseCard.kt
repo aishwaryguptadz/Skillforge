@@ -54,7 +54,7 @@ fun CourseCard(course: Course, onClick: () -> Unit) {
             ) {
                 Text(
                     course.level.uppercase(),
-                    color = if (course.level.uppercase() == "BEGINNER") Color.Green else Color.Yellow,
+                    color = if (course.level.uppercase() == "BEGINNER") Color(0xFF32CD32) else Color.Yellow,
                     style = MaterialTheme.typography.labelMedium
                 )
 
