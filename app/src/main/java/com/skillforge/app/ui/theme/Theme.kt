@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color
 private val LightColorScheme = lightColorScheme(
     primary = Color(0xFF2DD4BF),
     // Other default colors to override
-    background = Color(0xFFFFFDF2),
+    background = Color(0xFFFFFFF2),
     surface = Color.White,
     onPrimary = Color.White,
     onBackground = Color.Black,

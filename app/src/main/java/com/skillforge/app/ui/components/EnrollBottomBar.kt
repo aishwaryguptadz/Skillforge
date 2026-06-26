@@ -32,7 +32,6 @@ fun EnrollBottomBar() {
                 modifier = Modifier.weight(1f)
             ) {
                 Text("PRICE", color = Color.Gray)
-
                 Text("Free", color = Color(0xFF32CD32), fontWeight = FontWeight.Bold)
             }
 

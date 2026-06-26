@@ -1,5 +1,6 @@
 package com.skillforge.app.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Card
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,11 +24,11 @@ import com.skillforge.app.data.model.Category
 
 @Composable
 fun CategoryChip(category: Category) {
-    ElevatedCard(
+    Card(
         modifier = Modifier
-            .width(140.dp)
-            .height(100.dp)
-            .padding(horizontal = 20.dp)
+            .width(150.dp)
+            .padding(start = 10.dp),
+        border = BorderStroke(1.dp, Color(0xFFC4C4C4))
     ) {
             Column(
                 Modifier
@@ -37,7 +39,7 @@ fun CategoryChip(category: Category) {
                 Alignment.Start
             ) {
                 Box(
-                    modifier = Modifier.background(Color.Green).padding(4.dp)
+                    modifier = Modifier.background(Color(0x5532CD32)).padding(4.dp)
                 ) {
                     Spacer(Modifier
                         .height(12.dp)
@@ -60,5 +62,6 @@ fun CategoryChip(category: Category) {
                     style = MaterialTheme.typography.labelMedium
                 )
             }
-        }
     }
+    Spacer(Modifier.width(10.dp))
+}
